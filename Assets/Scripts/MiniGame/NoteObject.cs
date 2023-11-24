@@ -69,7 +69,7 @@ public class NoteObject : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.tag == "Activator")
+        if((other.tag == "Activator") && (hitKey == false))
         {
             canBePressed = false;
 
