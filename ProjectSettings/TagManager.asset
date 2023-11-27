@@ -13,11 +13,12 @@ TagManager:
   - Drums
   - DeadHero
   - DeadEnemy
+  - CinemachineTarget
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 

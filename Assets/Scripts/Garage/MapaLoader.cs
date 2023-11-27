@@ -16,7 +16,7 @@ public class MapaLoader : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && olhandoParaMapa)
         {
             // Carregue a cena "Tabuleiro"
-            SceneManager.LoadScene(cenaTabuleiro);
+            SceneManager.LoadScene("Tabuleiro");
         }
     }
 
