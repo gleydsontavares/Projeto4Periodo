@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public float perfectHits;
     public float missedHits;
 
+    public GameObject pressKeyDown;
     public GameObject resultsScreen;
     public GameObject txtCombo;
     public GameObject txtScore;
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
         totalNotes = FindObjectsOfType<NoteObject>().Length;
 
         slider.maxValue = theMusic.clip.length;
-        
+
     }
 
     // Update is called once per frame

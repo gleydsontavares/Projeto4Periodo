@@ -19,6 +19,8 @@ public class ThirdPersonMovement : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        Cursor.lockState = CursorLockMode.Locked; // Trava o cursor no centro da tela.
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
