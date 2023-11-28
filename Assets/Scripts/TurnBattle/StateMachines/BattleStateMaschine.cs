@@ -58,6 +58,12 @@ public class BattleStateMaschine : MonoBehaviour
     //enemy buttons
     private List<GameObject> enemyBtns = new List<GameObject>();
 
+    public GameObject winCanvas;
+    public GameObject textDerrota;
+    public GameObject textVitoria;
+    public GameObject buttonJogarNovamente;
+    public GameObject buttonContinuar;
+
 
     void Start()
     {
@@ -148,12 +154,20 @@ public class BattleStateMaschine : MonoBehaviour
             case (PerformAction.LOSE):
                 {
                     Debug.Log("You Lost the Battle");
+                    winCanvas.SetActive(true);
+                    buttonContinuar.SetActive(false);
+                    textVitoria.SetActive(false);
                 }
             break;
             case (PerformAction.WIN):
                 {
                     Debug.Log("You Win the Battle");
-                    for(int i = 0; i < HerosInBattle.Count;i++)
+
+                    winCanvas.SetActive(true);
+                    textDerrota.SetActive(false);
+                    textVitoria.SetActive(true);
+
+                    for (int i = 0; i < HerosInBattle.Count;i++)
                     {
                         HerosInBattle[i].GetComponent<HeroStateMaschine>().currentState = HeroStateMaschine.TurnState.WAITING;
                     }

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public AudioSource theMusic;
     public Slider slider;
+    public GameObject SeuBotaoNaUI;
 
     public bool startPlaying;
 
@@ -73,7 +74,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if(!theMusic.isPlaying && !resultsScreen.activeInHierarchy)
+            if(startPlaying && !theMusic.isPlaying && !resultsScreen.activeInHierarchy)
             {
                 txtCombo.SetActive(false);
                 txtScore.SetActive(false);
@@ -117,9 +118,23 @@ public class GameManager : MonoBehaviour
                         }
                     }
                 }
+
                 rankText.text = rankVal;
 
                 finalScoreText.text = currentScore.ToString();
+
+                if (percentHit > 90)
+                {
+                    // Ativar o botão na UI
+                    SeuBotaoNaUI.SetActive(true);
+                    txtFailed.SetActive(false);
+                }
+                else
+                {
+                    // Desativar o botão na UI
+                    SeuBotaoNaUI.SetActive(false);
+                    txtFailed.SetActive(true);
+                }
             }
         }
         

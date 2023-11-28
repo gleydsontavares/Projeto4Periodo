@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleTurn.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
+    path: Assets/Scenes/EndCredits.unity
+    guid: 29876473ad11e884d90e818b2d9f2555
   m_configObjects: {}

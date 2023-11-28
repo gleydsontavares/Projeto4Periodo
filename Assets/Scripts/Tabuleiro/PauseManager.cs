@@ -11,9 +11,14 @@ public class PauseManager : MonoBehaviour
     public GameObject hotel1Panel2;
     public GameObject hotel1Panel3;
 
+    public AudioSource backgroundMusic;
+
+    private bool isPaused;
+
     private void Start()
     {
         pausePanel.SetActive(false);
+        isPaused = false;
     }
 
     private void Update()
@@ -27,22 +32,33 @@ public class PauseManager : MonoBehaviour
 
     public void OpenPanel()
     {
-        // Ativa o painel de pausa.
+        if (backgroundMusic != null && backgroundMusic.isPlaying)
+        {
+            backgroundMusic.Pause();
+        }
+
         pausePanel.SetActive(true);
-        Time.timeScale = 0f; // Pausa o tempo do jogo.
+        Time.timeScale = 0f;
+        isPaused = true;
     }
 
     public void ClosePanel()
     {
-        // Desativa o painel de pausa.
+        if (backgroundMusic != null && !backgroundMusic.isPlaying)
+        {
+            backgroundMusic.UnPause();
+        }
+
         pausePanel.SetActive(false);
-        Time.timeScale = 1f; // Reseta o tempo do jogo para o valor normal.
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 
     public void OpenScene(string sceneName)
     {
         // Carrega a cena com o nome especificado.
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f;
     }
 
     public void ClosePanelCidade1()
@@ -86,5 +102,5 @@ public class PauseManager : MonoBehaviour
         // Carrega a cena com o nome especificado.
         SceneManager.LoadScene(MiniGame);
     }
-
+    
 }
