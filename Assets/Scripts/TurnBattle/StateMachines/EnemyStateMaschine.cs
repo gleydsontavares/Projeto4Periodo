@@ -23,7 +23,7 @@ public class EnemyStateMaschine : MonoBehaviour
     
     // para o ProgressBar
     private float cur_cooldown = 0f;
-    private float max_cooldown = 10f;
+    private float max_cooldown = 5f;
     
     //this gameObject
     private Vector3 startposition;
@@ -32,7 +32,10 @@ public class EnemyStateMaschine : MonoBehaviour
     //timeforaction stuff
     private bool actionStarted = false;
     public GameObject HeroToAttack;
-    private float animSpeed = 5f;
+    private float animSpeed = 10f;
+
+    //alive
+    private bool alive = true;
     
     
     void Start()
@@ -52,9 +55,12 @@ public class EnemyStateMaschine : MonoBehaviour
         {
             
             case (TurnState.PROCESSING):
-                UpgradeProgressBar ();
-            
-            break;
+                if (BSM.PerformList.Count > 0)
+                {
+                    currentState = TurnState.CHOOSEACTION;
+                }
+
+                break;
 
             case (TurnState.CHOOSEACTION):
                 ChooseAction();
@@ -70,7 +76,45 @@ public class EnemyStateMaschine : MonoBehaviour
             break;
 
             case (TurnState.DEAD):
+                if(!alive)
+                {
+                    return;
+                }
+                else
+                {
+                    //change tag of enemy
+                    this.gameObject.tag = "DeadEnemy";
+                    //not attackable by heros
+                    BSM.EnemysInBattle.Remove(this.gameObject);
+                    //disable the selector
+                    Selector.SetActive(false);
+                    //remove all inputs enemyattacks
+                    if(BSM.EnemysInBattle.Count > 0)
+                    {
 
+                    
+                        for(int i = 0; i<BSM.PerformList.Count; i++)
+                        {
+                            if (BSM.PerformList[i].AttackersGameObject ==  this.gameObject)
+                            {
+                                BSM.PerformList.Remove(BSM.PerformList[i]);
+                            }
+                            if (BSM.PerformList[i].AttackersTarget == this.gameObject)
+                            {
+                                BSM.PerformList[i].AttackersTarget = BSM.EnemysInBattle[Random.Range(0,BSM.EnemysInBattle.Count)];
+                            }
+                        }
+                    }
+                    //change the color to gray / play dead animation
+                    this.gameObject.GetComponent<MeshRenderer>().material.color = new Color32(105, 105, 105, 255);
+                    //set alive false
+                    alive = false;
+                    //reset enemy buttons
+                    BSM.EnemyButtons();
+                    //check alive
+                    BSM.battleStates = BattleStateMaschine.PerformAction.CHECKALIVE;
+
+                }
             break;
 
         }
@@ -89,17 +133,30 @@ public class EnemyStateMaschine : MonoBehaviour
 
     void ChooseAction()
     {
-        HandleTurn myAttack = new HandleTurn ();
-        myAttack.Attacker = enemy.theName;
-        myAttack.Type = "Enemy";
-        myAttack.AttackersGameObject = this.gameObject;
-        myAttack.AttackersTarget = BSM.HerosInBattle[Random.Range(0, BSM.HerosInBattle.Count)];
-        
-        int num = Random.Range(0, enemy.attacks.Count);
-        myAttack.choosenAttack = enemy.attacks[num];
-        Debug.Log(this.gameObject.name + " has choosen " + myAttack.choosenAttack.attackName + (" and do ") + myAttack.choosenAttack.attackDamage + " damage! ");
-        
-        BSM.CollectActions (myAttack);
+        if (BSM.HerosInBattle.Count > 0)
+        {
+            // Cria um objeto HandleTurn para representar a ação do inimigo
+            HandleTurn myAttack = new HandleTurn();
+            myAttack.Attacker = enemy.theName;
+            myAttack.Type = "Enemy";
+            myAttack.AttackersGameObject = this.gameObject;
+
+            // Escolhe um herói aleatório como alvo
+            myAttack.AttackersTarget = BSM.HerosInBattle[Random.Range(0, BSM.HerosInBattle.Count)];
+
+            // Escolhe um ataque aleatório do inimigo
+            int num = Random.Range(0, enemy.attacks.Count);
+            myAttack.choosenAttack = enemy.attacks[num];
+            Debug.Log(this.gameObject.name + " has chosen " + myAttack.choosenAttack.attackName + " and does " + myAttack.choosenAttack.attackDamage + " damage!");
+
+            // Adiciona a ação à lista de ações no BattleStateMaschine
+            BSM.CollectActions(myAttack);
+        }
+        else
+        {
+            // Se não houver heróis na batalha, retorna ao estado PROCESSING
+            currentState = TurnState.PROCESSING;
+        }
     }
 
     private IEnumerator TimeForAction()
@@ -149,5 +206,15 @@ public class EnemyStateMaschine : MonoBehaviour
     {
         float calc_damage = enemy.curATK + BSM.PerformList[0].choosenAttack.attackDamage;
         HeroToAttack.GetComponent<HeroStateMaschine>().TakeDamage(calc_damage);
+    }
+
+    public void TakeDamake(float getDamageAmount)
+    {
+        enemy.curHP -= getDamageAmount;
+        if(enemy.curHP <= 0)
+        {
+            enemy.curHP = 0;
+            currentState = TurnState.DEAD;
+        }
     }
 }
