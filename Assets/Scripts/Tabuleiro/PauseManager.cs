@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour
 {
     public GameObject pausePanel;
+    public GameObject cidade1Panel;
+    public GameObject hotel1Panel;
+    public GameObject hotel1Panel2;
+    public GameObject hotel1Panel3;
 
     private void Start()
     {
@@ -40,4 +44,47 @@ public class PauseManager : MonoBehaviour
         // Carrega a cena com o nome especificado.
         SceneManager.LoadScene(sceneName);
     }
+
+    public void ClosePanelCidade1()
+    {
+        // Desativa o painel de pausa.
+        cidade1Panel.SetActive(false);
+        Time.timeScale = 1f; // Reseta o tempo do jogo para o valor normal.
+    }
+    public void ClosePanelHotel1()
+    {
+        // Desativa o painel de pausa.
+        hotel1Panel.SetActive(false);
+        Time.timeScale = 1f; // Reseta o tempo do jogo para o valor normal.
+    }
+    public void nextPanelHotel1()
+    {
+        // Desativa o painel de pausa.
+        hotel1Panel.SetActive(false);
+        hotel1Panel2.SetActive(true);
+        
+    }
+    
+    public void next2PanelHotel1()
+    {
+        // Desativa o painel de pausa.
+        hotel1Panel2.SetActive(false);
+        hotel1Panel3.SetActive(true);
+    }
+
+    public void CloseAllPanelHotel1()
+    {
+        // Desativa o painel de pausa.
+        hotel1Panel.SetActive(false);
+        hotel1Panel2.SetActive(false);
+        hotel1Panel3.SetActive(false);
+        Time.timeScale = 1f; // Reseta o tempo do jogo para o valor normal.
+    }
+
+    public void OpenMiniGame(string MiniGame)
+    {
+        // Carrega a cena com o nome especificado.
+        SceneManager.LoadScene(MiniGame);
+    }
+
 }

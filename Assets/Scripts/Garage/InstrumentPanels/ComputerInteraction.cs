@@ -11,7 +11,7 @@ public class ComputerInteraction : MonoBehaviour
     public MouseCursorController cursorController;
     public GameObject BuyButtons;
 
-    public float interactionDistance = 5f; // Distância de interação do jogador
+    public float interactionDistance = 9f; // Distância de interação do jogador
 
     private bool isInteracting = false;
 
