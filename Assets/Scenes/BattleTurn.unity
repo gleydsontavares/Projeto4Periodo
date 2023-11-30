@@ -8185,7 +8185,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.0025818427, y: 0.9838881, z: -0.17819792, w: 0.014255185}
+  m_LocalRotation: {x: 0.002581843, y: 0.9838881, z: -0.17819792, w: 0.014255187}
   m_LocalPosition: {x: 2.43, y: 1.29, z: 9.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11304,7 +11304,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121294074}
-  m_LocalRotation: {x: -0.0005685341, y: 0.9991248, z: 0.03924003, w: 0.014475944}
+  m_LocalRotation: {x: -0.0005685342, y: 0.9991248, z: 0.03924003, w: 0.014475946}
   m_LocalPosition: {x: 2.43, y: 1.29, z: 9.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -11622,7 +11622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1020167671750971629, guid: 31ded8bd4d92208409846b3228630607, type: 3}
       propertyPath: enemy.curHP
-      value: 10
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1020167671750971629, guid: 31ded8bd4d92208409846b3228630607, type: 3}
       propertyPath: enemy.curMP

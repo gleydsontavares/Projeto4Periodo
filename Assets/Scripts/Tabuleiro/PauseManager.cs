@@ -10,6 +10,7 @@ public class PauseManager : MonoBehaviour
     public GameObject hotel1Panel;
     public GameObject hotel1Panel2;
     public GameObject hotel1Panel3;
+    public GameObject garagemPanel;
 
     public AudioSource backgroundMusic;
 
@@ -96,11 +97,16 @@ public class PauseManager : MonoBehaviour
         hotel1Panel3.SetActive(false);
         Time.timeScale = 1f; // Reseta o tempo do jogo para o valor normal.
     }
+    public void ClosePanelGarage()
+    {
+        // Desativa o painel de pausa.
+        garagemPanel.SetActive(false);
+        Time.timeScale = 1f; // Reseta o tempo do jogo para o valor normal.
+    }
 
     public void OpenMiniGame(string MiniGame)
     {
         // Carrega a cena com o nome especificado.
         SceneManager.LoadScene(MiniGame);
     }
-    
 }

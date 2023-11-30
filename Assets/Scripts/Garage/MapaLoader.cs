@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MapaLoader : MonoBehaviour
 {
     public GameObject mapa; // O GameObject que você quer que o jogador esteja olhando
     public float distanciaMaxima = 5.0f; // A distância máxima para o Raycast
-    public string cenaTabuleiro = "Tabuleiro"; // Nome da cena que você quer carregar
+    public GameObject uiMapa; // Referência ao objeto de UI que você deseja ativar
     private bool olhandoParaMapa = false;
 
     void Update()
@@ -15,8 +15,8 @@ public class MapaLoader : MonoBehaviour
         // Verifique se o jogador está pressionando a tecla "F"
         if (Input.GetKeyDown(KeyCode.F) && olhandoParaMapa)
         {
-            // Carregue a cena "Tabuleiro"
-            SceneManager.LoadScene("Tabuleiro");
+            // Ative a UI do mapa
+            uiMapa.SetActive(true);
         }
     }
 

@@ -1,0 +1,281 @@
+fileFormatVersion: 2
+guid: 03b748a56de6c354fa0e45eec8f29006
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 24Teto
+    second: {fileID: 2100000, guid: 782c5a87eb6116741b2bb9eff4c3a22c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AC24
+    second: {fileID: 2100000, guid: 51693b9cdfb3a794095011f7bfa1dca3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cables Material.001
+    second: {fileID: 2100000, guid: 140b42bc122eff9408a2adcfb32c0227, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Calcada
+    second: {fileID: 2100000, guid: fbed66b00b3789440ac7fa5cf77546b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CalcadaBorda
+    second: {fileID: 2100000, guid: 1169451be2ad83041b2885b2e03ab9e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corner Rings.001
+    second: {fileID: 2100000, guid: 0b51c76265d29cb4a989d2b1783e8abf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Empresarial
+    second: {fileID: 2100000, guid: eefd0ea16bc09d7499dd2b3f2853ac3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Empresarial_escuro
+    second: {fileID: 2100000, guid: 5fd00f22a2ed10649a25529b7638509e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grades
+    second: {fileID: 2100000, guid: c4e196a50ad7baa40a0576825258ec24, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal025 1K.004
+    second: {fileID: 2100000, guid: fd3486491a54c754f80beb39a9adb6b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalPlates010 1K.001
+    second: {fileID: 2100000, guid: 6431010e128e3654fa4a1d87a5c58fec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metro
+    second: {fileID: 2100000, guid: 0c72ba6b4f7980448954ca82fdc5d1b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Neon
+    second: {fileID: 2100000, guid: 025e4d60413007d4f84cc3ff4ed3d3db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Neon_azul
+    second: {fileID: 2100000, guid: e6bf21f25cd17544c9d74c29fce5ca2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Neon_azul.001
+    second: {fileID: 2100000, guid: 1ec976a1e874bf44baaac6bf3370b79c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Neon_branco
+    second: {fileID: 2100000, guid: 5a07a57f7fd1b1043a02ad7c1db591de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Neon_vermelho
+    second: {fileID: 2100000, guid: e21e19e6eb8f8b84cbff3dbfa7015a29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaintedMetal013 2K.001
+    second: {fileID: 2100000, guid: 1002118b7862aff4abbf75fe16617a2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaintedMetal013 2K.007
+    second: {fileID: 2100000, guid: ef9164def59beb84785370a0142146e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PortaFOra
+    second: {fileID: 2100000, guid: 6ba1138f3ce82ec4788f625916b0ac17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Predios
+    second: {fileID: 2100000, guid: 256c0fa887a20ef48955f847c8c35ac1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Predios.escuro
+    second: {fileID: 2100000, guid: c1f2d4b0e8ce5414895693972142a886, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Semaforo_amarelo
+    second: {fileID: 2100000, guid: e50e197d99cfaba4f95fd00992fca13f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Semaforo_verde
+    second: {fileID: 2100000, guid: 3f7a420aea8aa804690f67a1ff0e9a3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Semaforo_vermelho
+    second: {fileID: 2100000, guid: 8139a39baea4d8349b168a7410ed750d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VErde
+    second: {fileID: 2100000, guid: 89eedb25056f2ac4fabcdfbbdb665dae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VidroOpaco
+    second: {fileID: 2100000, guid: 49b0bb1478ea16549a6ac691520d507b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: asfalto
+    second: {fileID: 2100000, guid: f29a62704179d4d4a9626c9cb02aec56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cinzaOpaco
+    second: {fileID: 2100000, guid: 3a8c3970d3f754046a27fcdb5ef55262, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lixo
+    second: {fileID: 2100000, guid: 49e6e6446f9fd474c9772691afcf95ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lixoverde
+    second: {fileID: 2100000, guid: 84e25b44d40c9084cbad966f557623d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: porta24
+    second: {fileID: 2100000, guid: 56823adedd65d7c4d82436eef01a0ff7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sacada
+    second: {fileID: 2100000, guid: 3bcf11d399b4cc34f8595fc5eb74d633, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vridro.2
+    second: {fileID: 2100000, guid: 51836d2bd19cdf04799e7cf9c0b519e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vridroEmpresarial
+    second: {fileID: 2100000, guid: 21c63409056d05946ac05b95c92134b0, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

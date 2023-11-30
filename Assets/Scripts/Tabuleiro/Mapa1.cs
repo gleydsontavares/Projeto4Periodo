@@ -5,6 +5,14 @@ using UnityEngine;
 public class Mapa1 : MonoBehaviour
 {
     public GameObject uiParaAtivar;
+    public float elevacaoAoPassarMouse = 0.2f; // Altura que o objeto será elevado ao passar o mouse
+    private Vector3 posicaoInicial; // Posição inicial do objeto
+
+    void Start()
+    {
+        // Salva a posição inicial do objeto
+        posicaoInicial = transform.position;
+    }
 
     void Update()
     {
@@ -29,5 +37,24 @@ public class Mapa1 : MonoBehaviour
                 }
             }
         }
+    }
+
+    void OnMouseOver()
+    {
+        // Eleva o objeto ao passar o mouse sobre ele
+        ElevaObjeto();
+    }
+
+    void OnMouseExit()
+    {
+        // Retorna o objeto à sua posição inicial ao retirar o mouse
+        transform.position = posicaoInicial;
+    }
+
+    void ElevaObjeto()
+    {
+        // Eleva o objeto na vertical
+        Vector3 novaPosicao = posicaoInicial + new Vector3(0, elevacaoAoPassarMouse, 0);
+        transform.position = novaPosicao;
     }
 }

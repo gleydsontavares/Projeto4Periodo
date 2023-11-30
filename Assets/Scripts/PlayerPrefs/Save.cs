@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Save : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private string chaveVolume = "Volume";
+
+    // Método para salvar o volume
+    public void SalvarVolume(float novoVolume)
     {
-        
+        PlayerPrefs.SetFloat(chaveVolume, novoVolume);
+        PlayerPrefs.Save();
     }
 
-    // Update is called once per frame
-    void Update()
+    // Método para carregar o volume
+    public float CarregarVolume()
     {
-        
+        return PlayerPrefs.GetFloat(chaveVolume, 1f); // Valor padrão 0.5 se não houver nenhum salvo
     }
 }
