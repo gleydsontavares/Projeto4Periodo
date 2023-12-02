@@ -112,7 +112,7 @@ Material:
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RimStep: 0.65
+    - _RimStep: 0.573
     - _RimStepSmooth: 0
     - _ShadowStep: 0.5
     - _ShadowStepSmooth: 0.04
@@ -127,7 +127,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.06378743, g: 0.06706908, b: 0.10836878, a: 1}
+    - _BaseColor: {r: 0.086997144, g: 0.09957623, b: 0.21698111, a: 1}
     - _Color: {r: 0.0637874, g: 0.06706906, b: 0.10836875, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
