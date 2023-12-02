@@ -280,7 +280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1603655338}
         m_TargetAssemblyTypeName: AjustesPanelController, Assembly-CSharp
         m_MethodName: OpenAudioPanel
         m_Mode: 1
@@ -4042,7 +4042,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &757955499
 Transform:
   m_ObjectHideFlags: 0
@@ -6639,9 +6639,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioPanel: {fileID: 1363432539}
   controlesPanel: {fileID: 1365831671}
-  musicVolumeSlider: {fileID: 0}
-  sfxVolumeSlider: {fileID: 0}
-  musicAudioSource: {fileID: 0}
 --- !u!1 &1365831671
 GameObject:
   m_ObjectHideFlags: 0
@@ -6657,7 +6654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1365831672
 Transform:
   m_ObjectHideFlags: 0
@@ -6834,7 +6831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1386329850
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7707,13 +7704,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1603655337}
+  - component: {fileID: 1603655338}
   m_Layer: 0
   m_Name: AjustesPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1603655337
 Transform:
   m_ObjectHideFlags: 0
@@ -7732,6 +7730,20 @@ Transform:
   m_Father: {fileID: 865598084}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1603655338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603655336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8e5e42d101feb458ec5a1a9da4b3fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioPanel: {fileID: 1363432539}
+  controlesPanel: {fileID: 1365831671}
 --- !u!1 &1630968819
 GameObject:
   m_ObjectHideFlags: 0
@@ -8822,79 +8834,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830661908}
   m_CullTransparentMesh: 1
---- !u!1001 &1836086524
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2081568385520507232, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: m_Name
-      value: playerpref
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081568385520507246, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081568385520507246, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 771.38586
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081568385520507246, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 523.7167
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081568385520507246, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.3450707
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081568385520507246, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081568385520507246, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081568385520507246, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081568385520507246, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081568385520507246, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081568385520507246, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2081568385520507246, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7051620072129148575, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: audioPanel
-      value: 
-      objectReference: {fileID: 1363432539}
-    - target: {fileID: 7051620072129148575, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: controlesPanel
-      value: 
-      objectReference: {fileID: 1365831671}
-    - target: {fileID: 7051620072129148575, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: sfxVolumeSlider
-      value: 
-      objectReference: {fileID: 1023433911}
-    - target: {fileID: 7051620072129148575, guid: e2d9218edf8df00429db4b3149406212, type: 3}
-      propertyPath: musicVolumeSlider
-      value: 
-      objectReference: {fileID: 1718039575}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e2d9218edf8df00429db4b3149406212, type: 3}
 --- !u!1 &1852182091
 GameObject:
   m_ObjectHideFlags: 0
@@ -10287,7 +10226,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1603655338}
         m_TargetAssemblyTypeName: AjustesPanelController, Assembly-CSharp
         m_MethodName: ClosePanel
         m_Mode: 1
