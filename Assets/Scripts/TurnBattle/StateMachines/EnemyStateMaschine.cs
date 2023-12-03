@@ -36,18 +36,29 @@ public class EnemyStateMaschine : MonoBehaviour
 
     //alive
     private bool alive = true;
-    
-    
+
+    //animator
+    private Animator enemyAnimator;
+
+    //camera control
+    public Camera mainCamera;
+    public Camera enemyCamera;
+    public Camera heroCamera;
+
+
+
     void Start()
     {
         currentState = TurnState.PROCESSING;
         Selector.SetActive(false);
         BSM = GameObject.Find("BattleManager").GetComponent<BattleStateMaschine>();
         startposition = transform.position;
+
+        enemyAnimator = GetComponent<Animator>();
     }
 
 
-       void Update()
+       public void Update()
     {
         Debug.Log (currentState);
             
@@ -88,6 +99,7 @@ public class EnemyStateMaschine : MonoBehaviour
                     BSM.EnemysInBattle.Remove(this.gameObject);
                     //disable the selector
                     Selector.SetActive(false);
+                    enemyAnimator.SetTrigger("MorteTrigger");
                     //remove all inputs enemyattacks
                     if(BSM.EnemysInBattle.Count > 0)
                     {
@@ -106,7 +118,7 @@ public class EnemyStateMaschine : MonoBehaviour
                         }
                     }
                     //change the color to gray / play dead animation
-                    this.gameObject.GetComponent<MeshRenderer>().material.color = new Color32(105, 105, 105, 255);
+                    //this.gameObject.GetComponent<MeshRenderer>().material.color = new Color32(105, 105, 105, 255);
                     //set alive false
                     alive = false;
                     //reset enemy buttons
@@ -167,18 +179,38 @@ public class EnemyStateMaschine : MonoBehaviour
         }
 
         actionStarted = true;
+        
+        
+        //trocar camera
+        enemyCamera.gameObject.SetActive(true);
+        heroCamera.gameObject.SetActive(false);
+        mainCamera.gameObject.SetActive(false);
+        
+        //faz animacao de ataque
+        string attackAnimation = BSM.PerformList[0].choosenAttack.attackAnimation;
+        enemyAnimator.Play(attackAnimation);
+        Debug.Log("INICIO ANIMACAO INIMIGO ATAQUE");
 
         //animate the enemy near the hero to attack
-        Vector3 heroPosition = new Vector3(HeroToAttack.transform.position.x - 1.5f, HeroToAttack.transform.position.y, HeroToAttack.transform.position.z);
-        while(MoveTowardsEnemy(heroPosition)){yield return null;}
+        //Vector3 heroPosition = new Vector3(HeroToAttack.transform.position.x - 1.5f, HeroToAttack.transform.position.y, HeroToAttack.transform.position.z);
+        //while(MoveTowardsEnemy(heroPosition)){yield return null;}
 
         //wait abit
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3f);
+        
+        //retorna animacao de idle
+        enemyCamera.gameObject.SetActive(false);
+        heroCamera.gameObject.SetActive(false);
+        mainCamera.gameObject.SetActive(true);
+        Debug.Log("FIM ANIMACAO INIMIGO ATAQUE");
+        yield return new WaitForSeconds(3f);
+        
         //do damage
         DoDamage();
+
         //animate back to startposition
-        Vector3 firstPosition = startposition;
-        while (MoveTowardsStart (firstPosition)) { yield return null; }
+        //Vector3 firstPosition = startposition;
+        //while (MoveTowardsStart (firstPosition)) { yield return null; }
 
 
         //remove this performer from the list in BSM

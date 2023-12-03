@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1315996390259230933}
-  - component: {fileID: 6427277447759785431}
+  - component: {fileID: 138468011349092118}
   m_Layer: 0
-  m_Name: SlashAbility
+  m_Name: BasicAtkAlex
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6427277447759785431
+--- !u!114 &138468011349092118
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,11 +41,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1597381242023565536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dad044756d2f7bf4e8ae638b791c77fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 52f3c9351fc17d74496fe4295531f027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Slash
-  attackDescription: Fast slash attack with you Weapon.
+  attackName: "Batida S\xF3lida"
+  attackDescription: "Alex faz uma batida s\xF3lida em sua bateria, causando dano
+    leve"
   attackDamage: 10
   attackCost: 0
-  attackAnimation: BOSS01_ATAQ_01
+  attackAnimation: BasicAtk
+  magicAttackAnimation: 

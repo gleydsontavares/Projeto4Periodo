@@ -63,8 +63,7 @@ public class BattleStateMaschine : MonoBehaviour
     public GameObject textVitoria;
     public GameObject buttonJogarNovamente;
     public GameObject buttonContinuar;
-
-
+    
     void Start()
     {
         battleStates = PerformAction.WAIT;
@@ -76,7 +75,6 @@ public class BattleStateMaschine : MonoBehaviour
         EnemySelectPanel.SetActive(false);
         MagicPanel.SetActive(false);
         
-
         EnemyButtons();
     }
 
@@ -130,47 +128,45 @@ public class BattleStateMaschine : MonoBehaviour
                 //idle
             break;
             
-            case(PerformAction.CHECKALIVE):
+            case (PerformAction.CHECKALIVE):
                 if (HerosInBattle.Count < 1)
                 {
                     battleStates = PerformAction.LOSE;
-                    //lose game
+                    StartCoroutine(WaitAndShowLoseCanvas());
                 }
                 else if (EnemysInBattle.Count < 1)
                 {
                     battleStates = PerformAction.WIN;
-                    //win the battle
+                    StartCoroutine(WaitAndShowWinCanvas());
                 }
                 else
                 {
-
-                    //call function
                     clearAttackPanel();
-                    HeroInput = HeroGUI.ACTIVATE;
+        
+                    if (PerformList.Count > 0)
+                    {
+                        battleStates = PerformAction.PERFORMACTION;
+                    }
+                    else
+                    {
+                        HeroInput = HeroGUI.ACTIVATE;
+                        battleStates = PerformAction.WAIT;
+                    }
                 }
-                    
-            break;
+                break;
 
             case (PerformAction.LOSE):
                 {
                     Debug.Log("You Lost the Battle");
-                    winCanvas.SetActive(true);
-                    buttonContinuar.SetActive(false);
-                    textVitoria.SetActive(false);
+                    
+                    StartCoroutine(WaitAndShowLoseCanvas());
                 }
             break;
             case (PerformAction.WIN):
                 {
                     Debug.Log("You Win the Battle");
 
-                    winCanvas.SetActive(true);
-                    textDerrota.SetActive(false);
-                    textVitoria.SetActive(true);
-
-                    for (int i = 0; i < HerosInBattle.Count;i++)
-                    {
-                        HerosInBattle[i].GetComponent<HeroStateMaschine>().currentState = HeroStateMaschine.TurnState.WAITING;
-                    }
+                    StartCoroutine(WaitAndShowWinCanvas());
                 }
             break;
         }
@@ -334,4 +330,27 @@ public class BattleStateMaschine : MonoBehaviour
         AttackPanel.SetActive(false);
         MagicPanel.SetActive(true);
     }
+    IEnumerator WaitAndShowWinCanvas()
+    {
+        yield return new WaitForSeconds(3f);
+
+        winCanvas.SetActive(true);
+        textDerrota.SetActive(false);
+        textVitoria.SetActive(true);
+
+        for (int i = 0; i < HerosInBattle.Count; i++)
+        {
+            HerosInBattle[i].GetComponent<HeroStateMaschine>().currentState = HeroStateMaschine.TurnState.WAITING;
+        }
+    }
+    
+    IEnumerator WaitAndShowLoseCanvas()
+    {
+        yield return new WaitForSeconds(3f);
+
+        winCanvas.SetActive(true);
+        buttonContinuar.SetActive(false);
+        textVitoria.SetActive(false);
+    }
 }
+

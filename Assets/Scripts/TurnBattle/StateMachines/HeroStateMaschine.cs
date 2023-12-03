@@ -37,6 +37,14 @@ public class HeroStateMaschine : MonoBehaviour
     private HeroPanelStats stats;
     public GameObject HeroPanel;
     private Transform HeroPanelSpacer;
+    
+    //animator
+    public Animator heroAnimator;
+    
+    //camera control
+    public Camera mainCamera;
+    public Camera enemyCamera;
+    public Camera heroCamera;
 
 
     void Start()
@@ -120,11 +128,11 @@ public class HeroStateMaschine : MonoBehaviour
                         }
                     }
                     //change collor / play animation
-                    this.gameObject.GetComponent<MeshRenderer>().material.color = new Color32(105,105,105,255);
+                    //this.gameObject.GetComponent<MeshRenderer>().material.color = new Color32(105,105,105,255);
+                    heroAnimator.SetTrigger("Morte");
                     //reset hero input
-                    BSM.battleStates = BattleStateMaschine.PerformAction.CHECKALIVE;
                     alive = false;
-
+                    BSM.battleStates = BattleStateMaschine.PerformAction.CHECKALIVE;
                 }
 
             break;
@@ -151,18 +159,44 @@ public class HeroStateMaschine : MonoBehaviour
         }
 
         actionStarted = true;
+        
+        //trocar camera
+        enemyCamera.gameObject.SetActive(false);
+        heroCamera.gameObject.SetActive(true);
+        mainCamera.gameObject.SetActive(false);
+        Debug.Log("INICIO ANIMACAO HEROI ATAQUE");
+        yield return new WaitForSeconds(1f);
 
-        //animate the enemy near the hero to attack
-        Vector3 enemyPosition = new Vector3(EnemyToAttack.transform.position.x+1.5f, EnemyToAttack.transform.position.y, EnemyToAttack.transform.position.z);
-        while (MoveTowardsEnemy(enemyPosition)) { yield return null; }
+        // Obtém o ataque escolhido
+        BaseAttack currentAttack = BSM.PerformList[0].choosenAttack;
 
-        //wait abit
-        yield return new WaitForSeconds(0.5f);
+        // Verifica se é um ataque mágico e utiliza a animação específica, se definida
+        if (currentAttack is BaseAttack magicAttack && !string.IsNullOrEmpty(magicAttack.magicAttackAnimation))
+        {
+            heroAnimator.SetTrigger(magicAttack.magicAttackAnimation);
+            // Aguarde o tempo da animação
+            yield return new WaitForSeconds(10f);
+        }
+        else
+        {
+            // Caso contrário, use a animação padrão para ataques normais
+            heroAnimator.SetTrigger("Attack");
+            // Aguarde o tempo da animação
+            yield return new WaitForSeconds(5f);
+        }
+
+        //trocar camera
+        enemyCamera.gameObject.SetActive(false);
+        heroCamera.gameObject.SetActive(false);
+        mainCamera.gameObject.SetActive(true);
+        Debug.Log("FIM ANIMACAO HEROI ATAQUE");
+        yield return new WaitForSeconds(3f);
+        
         //do damage
         DoDamage();
         //animate back to startposition
-        Vector3 firstPosition = startPosition;
-        while (MoveTowardsStart(firstPosition)) { yield return null; }
+        //Vector3 firstPosition = startPosition;
+        //while (MoveTowardsStart(firstPosition)) { yield return null; }
 
 
         //remove this performer from the list in BSM
@@ -207,8 +241,11 @@ public class HeroStateMaschine : MonoBehaviour
     //do damage
     void DoDamage()
     {
-        float calc_damage = hero.curATK + BSM.PerformList[0].choosenAttack.attackDamage;
-        EnemyToAttack.GetComponent<EnemyStateMaschine>().TakeDamake(calc_damage);
+        if (BSM.PerformList.Count > 0)
+        {
+            float calc_damage = hero.curATK + BSM.PerformList[0].choosenAttack.attackDamage;
+            EnemyToAttack.GetComponent<EnemyStateMaschine>().TakeDamake(calc_damage);
+        }
     }
 
     void ActivateHeroesSelection()

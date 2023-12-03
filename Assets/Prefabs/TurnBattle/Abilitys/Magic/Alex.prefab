@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5838670776188359961}
-  - component: {fileID: -3540014602275805285}
+  - component: {fileID: 7125689437059608236}
   m_Layer: 0
-  m_Name: Fire1
+  m_Name: Alex
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3540014602275805285
+--- !u!114 &7125689437059608236
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1817550077253065572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce642e3e29306249ac8618d064553cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 6866eed510408754e9270bfe0d5bc3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Fire 1
+  attackName: "Barreira R\xEDtmica"
   attackDescription: Basic Fire Spell which burns nothing.
   attackDamage: 20
   attackCost: 10
+  attackAnimation: 
+  magicAttackAnimation: MagicAtk

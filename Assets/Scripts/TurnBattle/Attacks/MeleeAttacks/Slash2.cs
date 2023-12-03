@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slash: BaseAttack
+public class Slash2: BaseAttack
 {
-    public Slash()
+    public Slash2()
     {
         attackName = "Slash";
         attackDescription = "Fast slash attack with you Weapon.";

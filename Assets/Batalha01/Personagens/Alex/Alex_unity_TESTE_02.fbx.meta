@@ -63,7 +63,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: IDLE 01
+      name: idle
       takeName: Scene
       internalID: -623603649343465320
       firstFrame: 150
@@ -74,7 +74,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -121,7 +121,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Alex_ataq_01
+      name: ataque01
       takeName: Scene
       internalID: -491678979986718739
       firstFrame: 100
@@ -150,7 +150,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Alex_ataq_02
+      name: ataque02
       takeName: Scene
       internalID: -7861037764357068360
       firstFrame: 1

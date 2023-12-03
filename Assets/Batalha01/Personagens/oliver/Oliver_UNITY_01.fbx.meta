@@ -43,11 +43,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Oliver_ataq_01
+      name: ataque01
       takeName: Scene
       internalID: -623603649343465320
-      firstFrame: 1
-      lastFrame: 63
+      firstFrame: 6
+      lastFrame: 72
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -72,7 +72,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: Oliver_ataq_02
+      name: ataque02
       takeName: Scene
       internalID: -8800838248204228948
       firstFrame: 80

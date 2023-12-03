@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1597381242023565536
+--- !u!1 &1817550077253065572
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1315996390259230933}
-  - component: {fileID: 6427277447759785431}
+  - component: {fileID: 5838670776188359961}
+  - component: {fileID: 1000840799814228084}
   m_Layer: 0
-  m_Name: SlashAbility
+  m_Name: Oliver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1315996390259230933
+--- !u!4 &5838670776188359961
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597381242023565536}
+  m_GameObject: {fileID: 1817550077253065572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,20 +32,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6427277447759785431
+--- !u!114 &1000840799814228084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597381242023565536}
+  m_GameObject: {fileID: 1817550077253065572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dad044756d2f7bf4e8ae638b791c77fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 6866eed510408754e9270bfe0d5bc3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: Slash
-  attackDescription: Fast slash attack with you Weapon.
-  attackDamage: 10
-  attackCost: 0
-  attackAnimation: BOSS01_ATAQ_01
+  attackName: Harmonia da Vida
+  attackDescription: Oliver cria uma harmonia poderosa que cura a banda.
+  attackDamage: 20
+  attackCost: 10
+  attackAnimation: 
+  magicAttackAnimation: MagicAtk

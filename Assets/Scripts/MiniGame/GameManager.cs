@@ -103,10 +103,10 @@ public class GameManager : MonoBehaviour
                         if(percentHit > 70)
                         {
                             rankVal = "B";
-                            if(percentHit > 85)
+                            if(percentHit > 80)
                             {
                                 rankVal = "A";
-                                if(percentHit > 95)
+                                if(percentHit > 90)
                                 {
                                     rankVal = "S";
                                     if(percentHit > 99)
@@ -123,15 +123,15 @@ public class GameManager : MonoBehaviour
 
                 finalScoreText.text = currentScore.ToString();
 
-                if (percentHit > 90)
+                if (percentHit > 80)
                 {
-                    // Ativar o botão na UI
+                    // Ativar o botï¿½o na UI
                     SeuBotaoNaUI.SetActive(true);
                     txtFailed.SetActive(false);
                 }
                 else
                 {
-                    // Desativar o botão na UI
+                    // Desativar o botï¿½o na UI
                     SeuBotaoNaUI.SetActive(false);
                     txtFailed.SetActive(true);
                 }

@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slash: BaseAttack
+public class BasicAtkAlex: BaseAttack
 {
-    public Slash()
+    public BasicAtkAlex()
     {
         attackName = "Slash";
         attackDescription = "Fast slash attack with you Weapon.";
         attackDamage = 10f;
         attackCost = 0;
-        attackAnimation = "BOSS01_ATAQ_01";
+        attackAnimation = "BasicAtk";
     }
 }
