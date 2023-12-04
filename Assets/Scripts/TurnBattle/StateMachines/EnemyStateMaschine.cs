@@ -47,6 +47,8 @@ public class EnemyStateMaschine : MonoBehaviour
     public Camera heroCamera;
     
     public Slider healthEnemySlider;
+    public ParticleSystem particlePrefab;
+    public GameObject damageParticlesPrefab;
     
 
     void Start()
@@ -192,6 +194,7 @@ public class EnemyStateMaschine : MonoBehaviour
         //faz animacao de ataque
         string attackAnimation = BSM.PerformList[0].choosenAttack.attackAnimation;
         enemyAnimator.Play(attackAnimation);
+        
         Debug.Log("INICIO ANIMACAO INIMIGO ATAQUE");
 
         //animate the enemy near the hero to attack
@@ -244,6 +247,12 @@ public class EnemyStateMaschine : MonoBehaviour
     {
         float calc_damage = enemy.curATK + BSM.PerformList[0].choosenAttack.attackDamage;
         HeroToAttack.GetComponent<HeroStateMaschine>().TakeDamage(calc_damage);
+        if (damageParticlesPrefab != null && HeroToAttack != null)
+        {
+            GameObject particles = Instantiate(damageParticlesPrefab, HeroToAttack.transform.position, Quaternion.identity);
+            particles.GetComponent<ParticleSystem>().Play();
+            Destroy(particles, particles.GetComponent<ParticleSystem>().main.duration);
+        }
     }
 
     public void TakeDamake(float getDamageAmount)

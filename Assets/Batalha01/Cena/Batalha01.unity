@@ -12506,7 +12506,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0037500001, y: 0.00888889}
   m_AnchorMax: {x: 0.47000003, y: 0.20544444}
-  m_AnchoredPosition: {x: 0.7999878, y: -0.5999756}
+  m_AnchoredPosition: {x: 0.8000488, y: -0.5999756}
   m_SizeDelta: {x: 59.73001, y: 15.645386}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &625868852
@@ -17573,6 +17573,8 @@ MonoBehaviour:
   enemyCamera: {fileID: 0}
   heroCamera: {fileID: 0}
   healthEnemySlider: {fileID: 0}
+  particlePrefab: {fileID: 0}
+  damageParticlesPrefab: {fileID: 0}
 --- !u!1 &834944184
 GameObject:
   m_ObjectHideFlags: 0
@@ -29868,6 +29870,8 @@ MonoBehaviour:
   enemyCamera: {fileID: 3971473794010599132}
   heroCamera: {fileID: 1575513792297928464}
   healthEnemySlider: {fileID: 0}
+  particlePrefab: {fileID: 1910233088308565801, guid: 94cea588caa4a8f4aaac50277b43e378, type: 3}
+  damageParticlesPrefab: {fileID: 8872151338666217542, guid: dcf4d584c27cb2944b64208c1f335c6d, type: 3}
 --- !u!65 &1407455958
 BoxCollider:
   m_ObjectHideFlags: 0
