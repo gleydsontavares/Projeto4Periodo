@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EnemyStateMaschine : MonoBehaviour
 {
@@ -44,8 +45,9 @@ public class EnemyStateMaschine : MonoBehaviour
     public Camera mainCamera;
     public Camera enemyCamera;
     public Camera heroCamera;
-
-
+    
+    public Slider healthEnemySlider;
+    
 
     void Start()
     {
@@ -55,6 +57,7 @@ public class EnemyStateMaschine : MonoBehaviour
         startposition = transform.position;
 
         enemyAnimator = GetComponent<Animator>();
+        healthEnemySlider = FindSliderByName("SLD_hp_enemy");
     }
 
 
@@ -197,16 +200,17 @@ public class EnemyStateMaschine : MonoBehaviour
 
         //wait abit
         yield return new WaitForSeconds(3f);
+        DoDamage();
         
         //retorna animacao de idle
         enemyCamera.gameObject.SetActive(false);
         heroCamera.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(true);
         Debug.Log("FIM ANIMACAO INIMIGO ATAQUE");
-        yield return new WaitForSeconds(3f);
         
         //do damage
-        DoDamage();
+        
+        yield return new WaitForSeconds(3f);
 
         //animate back to startposition
         //Vector3 firstPosition = startposition;
@@ -222,6 +226,8 @@ public class EnemyStateMaschine : MonoBehaviour
         // reset this enemy state
         cur_cooldown = 0f;
         currentState = TurnState.PROCESSING;
+        BSM.turnCount++;
+        BSM.turnCountText.text = "TURNO: " + BSM.turnCount.ToString();
     }
 
     private bool MoveTowardsEnemy(Vector3 target)
@@ -248,5 +254,49 @@ public class EnemyStateMaschine : MonoBehaviour
             enemy.curHP = 0;
             currentState = TurnState.DEAD;
         }
+        if (healthEnemySlider != null)
+        {
+            UpdateHealthSlider();
+        }
+    }
+    
+    void UpdateHealthSlider()
+    {
+        if (healthEnemySlider != null)
+        {
+            // Atualiza o valor máximo do Slider com a saúde máxima do inimigo
+            healthEnemySlider.maxValue = enemy.baseHP;
+
+            // Atualiza o valor atual do Slider com a saúde atual do inimigo
+            healthEnemySlider.value = enemy.curHP;
+        }
+    }
+    Slider FindSliderByName(string sliderName)
+    {
+        // Procure por um objeto com o nome especificado
+        GameObject sliderObject = GameObject.Find(sliderName);
+
+        // Se o objeto for encontrado, tente obter o componente Slider
+        if (sliderObject != null)
+        {
+            Slider sliderComponent = sliderObject.GetComponent<Slider>();
+        
+            // Se o componente Slider for encontrado, retorne-o
+            if (sliderComponent != null)
+            {
+                return sliderComponent;
+            }
+            else
+            {
+                Debug.LogError("Componente Slider não encontrado no objeto " + sliderName);
+            }
+        }
+        else
+        {
+            Debug.LogError("Objeto não encontrado com o nome " + sliderName);
+        }
+
+        // Se algo der errado, retorne null
+        return null;
     }
 }

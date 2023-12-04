@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackName: "Barreira R\xEDtmica"
-  attackDescription: Basic Fire Spell which burns nothing.
+  attackDescription: Alex cria uma barreira protetora ao tocar sua bateria
   attackDamage: 20
   attackCost: 10
   attackAnimation: 

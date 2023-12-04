@@ -20,6 +20,7 @@ public class HeroStateMaschine : MonoBehaviour
     }
 
     public TurnState currentState;
+    
     // para o ProgressBar
     private float cur_cooldown = 0f;
     private float max_cooldown = 5f;
@@ -31,8 +32,10 @@ public class HeroStateMaschine : MonoBehaviour
     private bool actionStarted = false;
     private Vector3 startPosition;
     private float animSpeed = 10f;
+    
     //dead
     private bool alive = true;
+    
     //heroPanel
     private HeroPanelStats stats;
     public GameObject HeroPanel;
@@ -45,6 +48,10 @@ public class HeroStateMaschine : MonoBehaviour
     public Camera mainCamera;
     public Camera enemyCamera;
     public Camera heroCamera;
+    
+    public Slider healthSlider;
+
+    public GameObject guitarraMaya;
 
 
     void Start()
@@ -130,6 +137,10 @@ public class HeroStateMaschine : MonoBehaviour
                     //change collor / play animation
                     //this.gameObject.GetComponent<MeshRenderer>().material.color = new Color32(105,105,105,255);
                     heroAnimator.SetTrigger("Morte");
+                    if (guitarraMaya != null)
+                    {
+                        Destroy(guitarraMaya.gameObject);
+                    }
                     //reset hero input
                     alive = false;
                     BSM.battleStates = BattleStateMaschine.PerformAction.CHECKALIVE;
@@ -184,16 +195,17 @@ public class HeroStateMaschine : MonoBehaviour
             // Aguarde o tempo da animação
             yield return new WaitForSeconds(5f);
         }
-
+        
         //trocar camera
         enemyCamera.gameObject.SetActive(false);
         heroCamera.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(true);
         Debug.Log("FIM ANIMACAO HEROI ATAQUE");
-        yield return new WaitForSeconds(3f);
+        
         
         //do damage
         DoDamage();
+        yield return new WaitForSeconds(3f);
         //animate back to startposition
         //Vector3 firstPosition = startPosition;
         //while (MoveTowardsStart(firstPosition)) { yield return null; }
@@ -262,8 +274,8 @@ public class HeroStateMaschine : MonoBehaviour
         HeroPanel = Instantiate(HeroPanel) as GameObject;
         stats = HeroPanel.GetComponent<HeroPanelStats>();
         stats.HeroName.text = hero.theName;
-        stats.HeroHP.text = "HP: " + hero.curHP;
-        stats.HeroMP.text = "MP: " + hero.curMP;
+        stats.HeroHP.text = "HP: " + hero.curHP + " / " + hero.baseHP;
+        stats.HeroMP.text = "MP: " + hero.curMP + " / " + hero.baseMP;
 
         ProgressBar = stats.ProgressBar;
         HeroPanel.transform.SetParent(HeroPanelSpacer, false);
@@ -271,7 +283,17 @@ public class HeroStateMaschine : MonoBehaviour
     //update stats on damage / heal
     void UpdateHeroPanel()
     {
-        stats.HeroHP.text = "HP: " + hero.curHP;
-        stats.HeroMP.text = "MP: " + hero.curMP;
+        stats.HeroHP.text = "HP: " + hero.curHP + " / " + hero.baseHP;
+        stats.HeroMP.text = "MP: " + hero.curMP + " / " + hero.baseMP;
+        
+        if (healthSlider != null)
+        {
+            healthSlider.value = CalculateHealthPercentage();
+        }
+    }
+    float CalculateHealthPercentage()
+    {
+        // Calcula a porcentagem de saúde
+        return hero.curHP / hero.baseHP;
     }
 }

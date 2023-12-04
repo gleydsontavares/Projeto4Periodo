@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Rift Poderoso
+  m_Text: Habilidades
 --- !u!1 &3305596848482952746
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,9 +94,9 @@ GameObject:
   - component: {fileID: 3305596848482952748}
   - component: {fileID: 2426904697061668266}
   - component: {fileID: 3640264675608907529}
-  - component: {fileID: 7945509913722581732}
+  - component: {fileID: 4428924445829862992}
   m_Layer: 5
-  m_Name: ActionButton
+  m_Name: 'HabilityButton '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9729a27a44bb5b54e870de2970fd3cdd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5eafe18203c2a374989c4ac55121f44d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
---- !u!114 &7945509913722581732
+--- !u!114 &4428924445829862992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   simpleTooltipStyle: {fileID: 11400000, guid: dea555cc7b5bdbb4e8dae068d456f3de, type: 2}
-  infoLeft: 'Rift Poderoso
+  infoLeft: 'Lista de Habilidades
 
-    Maya toca um riff de guitarra, causando dano moderado.'
+    Movimentos Especiais de Musica'
   infoRight: 

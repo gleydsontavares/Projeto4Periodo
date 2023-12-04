@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TargetType
+{
+    Enemy,
+    Ally
+}
+
 [System.Serializable]
 public class BaseAttack: MonoBehaviour
 {
@@ -12,4 +18,6 @@ public class BaseAttack: MonoBehaviour
     public float attackCost; //Mana Cost
     public string attackAnimation;
     public string magicAttackAnimation;
+    public TargetType targetType;
+    
 }

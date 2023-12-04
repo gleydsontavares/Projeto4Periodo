@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class BattleStateMaschine : MonoBehaviour
@@ -37,6 +38,9 @@ public class BattleStateMaschine : MonoBehaviour
     }
 
     public HeroGUI HeroInput;
+    //contar de turnos
+    public int turnCount = 0;
+    public TextMeshProUGUI turnCountText;
 
     public List<GameObject> HerosToManage = new List<GameObject>();
     private HandleTurn HeroChoise;
@@ -51,8 +55,17 @@ public class BattleStateMaschine : MonoBehaviour
     //attack of heros
     public Transform actionSpacer;
     public Transform magicSpacer;
+    //Maya
     public GameObject actionButton;
+    public GameObject habilityButton;
     public GameObject magicButton;
+    //Oliver
+    public GameObject oliverButton;
+    public GameObject oliverMagicButton;
+    //Alex
+    public GameObject alexButton;
+    public GameObject alexMagicButton;
+    
     private List<GameObject> atkBtns = new List<GameObject>();
 
     //enemy buttons
@@ -63,6 +76,11 @@ public class BattleStateMaschine : MonoBehaviour
     public GameObject textVitoria;
     public GameObject buttonJogarNovamente;
     public GameObject buttonContinuar;
+
+    //lista de herois
+    public GameObject heroiMaya;
+    public GameObject heroiOliver;
+    public GameObject heroiAlex;
     
     void Start()
     {
@@ -132,32 +150,24 @@ public class BattleStateMaschine : MonoBehaviour
                 if (HerosInBattle.Count < 1)
                 {
                     battleStates = PerformAction.LOSE;
-                    StartCoroutine(WaitAndShowLoseCanvas());
                 }
                 else if (EnemysInBattle.Count < 1)
                 {
                     battleStates = PerformAction.WIN;
-                    StartCoroutine(WaitAndShowWinCanvas());
                 }
                 else
                 {
+
+                    //call function
                     clearAttackPanel();
-        
-                    if (PerformList.Count > 0)
-                    {
-                        battleStates = PerformAction.PERFORMACTION;
-                    }
-                    else
-                    {
-                        HeroInput = HeroGUI.ACTIVATE;
-                        battleStates = PerformAction.WAIT;
-                    }
+                    HeroInput = HeroGUI.ACTIVATE;
                 }
+        
                 break;
 
             case (PerformAction.LOSE):
                 {
-                    Debug.Log("You Lost the Battle");
+                    Debug.Log("You Lose the Battle");
                     
                     StartCoroutine(WaitAndShowLoseCanvas());
                 }
@@ -177,11 +187,11 @@ public class BattleStateMaschine : MonoBehaviour
                 if(HerosToManage.Count > 0)
                 {
                     HerosToManage[0].transform.FindChild("Selector").gameObject.SetActive (true);
-                    //create new handleturn instance
+                    //criar nova instância de handleturn
                     HeroChoise = new HandleTurn();
 
                     AttackPanel.SetActive(true);
-                    //populate action buttons
+                    //preenche os botões de ação
                     CreateAttackButtons();
                     HeroInput = HeroGUI.WAITING;
                 }
@@ -281,16 +291,35 @@ public class BattleStateMaschine : MonoBehaviour
     //create actionbuttons
     void CreateAttackButtons()
     {
+        if (heroiMaya != null && heroiMaya.layer == LayerMask.NameToLayer("maya") && HerosToManage.Contains(heroiMaya))
+        {
+            CreateMayaButtons();
+            Debug.Log("Maya em ação!");
+        }
+        else if (heroiOliver != null && heroiOliver.layer == LayerMask.NameToLayer("oliver") && HerosToManage.Contains(heroiOliver))
+        {
+            CreateOliverButtons();
+            Debug.Log("Oliver em ação!");
+        }
+        else if (heroiAlex != null && heroiAlex.layer == LayerMask.NameToLayer("alex") && HerosToManage.Contains(heroiAlex))
+        {
+            CreateAlexButtons();
+            Debug.Log("Alex em ação!");
+        }
+    }
+
+    void CreateMayaButtons()
+    {
         GameObject AttackButton = Instantiate(actionButton) as GameObject;
         Text AttackButtonText = AttackButton.transform.FindChild("Text").gameObject.GetComponent<Text>();
-        AttackButtonText.text = "Attack";
+        AttackButtonText.text = "Rift Poderoso";
         AttackButton.GetComponent<Button>().onClick.AddListener(() => Input1());
         AttackButton.transform.SetParent(actionSpacer, false);
         atkBtns.Add(AttackButton);
 
-        GameObject MagicAttackButton = Instantiate(actionButton) as GameObject;
+        GameObject MagicAttackButton = Instantiate(habilityButton) as GameObject;
         Text MagicAttackButtonText = MagicAttackButton.transform.FindChild("Text").gameObject.GetComponent<Text>();
-        MagicAttackButtonText.text = "Magic";
+        MagicAttackButtonText.text = "Habilidades";
         MagicAttackButton.GetComponent<Button>().onClick.AddListener(() => Input3());
         MagicAttackButton.transform.SetParent(actionSpacer, false);
         atkBtns.Add(MagicAttackButton);
@@ -313,7 +342,76 @@ public class BattleStateMaschine : MonoBehaviour
             MagicAttackButton.GetComponent<Button>().interactable = false;
         }
     }
+    
+    void CreateOliverButtons()
+    {
+        GameObject AttackButton = Instantiate(oliverButton) as GameObject;
+        Text AttackButtonText = AttackButton.transform.FindChild("Text").gameObject.GetComponent<Text>();
+        AttackButtonText.text = "Nota Magica";
+        AttackButton.GetComponent<Button>().onClick.AddListener(() => Input1());
+        AttackButton.transform.SetParent(actionSpacer, false);
+        atkBtns.Add(AttackButton);
 
+        GameObject MagicAttackButton = Instantiate(habilityButton) as GameObject;
+        Text MagicAttackButtonText = MagicAttackButton.transform.FindChild("Text").gameObject.GetComponent<Text>();
+        MagicAttackButtonText.text = "Habilidades";
+        MagicAttackButton.GetComponent<Button>().onClick.AddListener(() => Input3());
+        MagicAttackButton.transform.SetParent(actionSpacer, false);
+        atkBtns.Add(MagicAttackButton);
+
+        if (HerosToManage[0].GetComponent<HeroStateMaschine>().hero.MagicAttacks.Count > 0)
+        {
+            foreach(BaseAttack magicAtk in HerosToManage[0].GetComponent<HeroStateMaschine>().hero.MagicAttacks)
+            {
+                GameObject MagicButton = Instantiate(oliverMagicButton) as GameObject;
+                Text MagicButtonText = MagicButton.transform.FindChild("Text").gameObject.GetComponent<Text>();
+                MagicButtonText.text = magicAtk.attackName;
+                AttackButton ATB = magicButton.GetComponent<AttackButton>();
+                ATB.magicAttackToPerform = magicAtk;
+                MagicButton.transform.SetParent(magicSpacer, false);
+                atkBtns.Add(MagicButton);
+            }
+        }
+        else
+        {
+            MagicAttackButton.GetComponent<Button>().interactable = false;
+        }
+    }
+    
+    void CreateAlexButtons()
+    {
+        GameObject AttackButton = Instantiate(alexButton) as GameObject;
+        Text AttackButtonText = AttackButton.transform.FindChild("Text").gameObject.GetComponent<Text>();
+        AttackButtonText.text = "Batida Solida";
+        AttackButton.GetComponent<Button>().onClick.AddListener(() => Input1());
+        AttackButton.transform.SetParent(actionSpacer, false);
+        atkBtns.Add(AttackButton);
+
+        GameObject MagicAttackButton = Instantiate(habilityButton) as GameObject;
+        Text MagicAttackButtonText = MagicAttackButton.transform.FindChild("Text").gameObject.GetComponent<Text>();
+        MagicAttackButtonText.text = "Habilidades";
+        MagicAttackButton.GetComponent<Button>().onClick.AddListener(() => Input3());
+        MagicAttackButton.transform.SetParent(actionSpacer, false);
+        atkBtns.Add(MagicAttackButton);
+
+        if (HerosToManage[0].GetComponent<HeroStateMaschine>().hero.MagicAttacks.Count > 0)
+        {
+            foreach(BaseAttack magicAtk in HerosToManage[0].GetComponent<HeroStateMaschine>().hero.MagicAttacks)
+            {
+                GameObject MagicButton = Instantiate(alexMagicButton) as GameObject;
+                Text MagicButtonText = MagicButton.transform.FindChild("Text").gameObject.GetComponent<Text>();
+                MagicButtonText.text = magicAtk.attackName;
+                AttackButton ATB = magicButton.GetComponent<AttackButton>();
+                ATB.magicAttackToPerform = magicAtk;
+                MagicButton.transform.SetParent(magicSpacer, false);
+                atkBtns.Add(MagicButton);
+            }
+        }
+        else
+        {
+            MagicAttackButton.GetComponent<Button>().interactable = false;
+        }
+    }
     public void Input4(BaseAttack choosenMagic)//choosen magic attack
     {
         HeroChoise.Attacker = HerosToManage[0].name;
@@ -335,8 +433,9 @@ public class BattleStateMaschine : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         winCanvas.SetActive(true);
-        textDerrota.SetActive(false);
         textVitoria.SetActive(true);
+        buttonContinuar.SetActive(true);
+        buttonJogarNovamente.SetActive(true);
 
         for (int i = 0; i < HerosInBattle.Count; i++)
         {
@@ -349,8 +448,10 @@ public class BattleStateMaschine : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         winCanvas.SetActive(true);
+        textDerrota.SetActive(true);
         buttonContinuar.SetActive(false);
-        textVitoria.SetActive(false);
+        buttonJogarNovamente.SetActive(true);
+
     }
 }
 

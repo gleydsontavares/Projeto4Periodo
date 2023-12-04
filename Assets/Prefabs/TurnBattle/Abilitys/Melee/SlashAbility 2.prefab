@@ -47,6 +47,7 @@ MonoBehaviour:
   attackName: Slash
   attackDescription: Fast slash attack with you Weapon.
   attackDamage: 25
-  attackCost: 0
+  attackCost: 10
   attackAnimation: BOSS01_ATAQ_02
   magicAttackAnimation: 
+  targetType: 0
