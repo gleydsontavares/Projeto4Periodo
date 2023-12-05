@@ -312,7 +312,6 @@ public class BattleStateMaschine : MonoBehaviour
     {
         GameObject AttackButton = Instantiate(actionButton) as GameObject;
         Text AttackButtonText = AttackButton.transform.FindChild("Text").gameObject.GetComponent<Text>();
-        AttackButtonText.text = "Rift Poderoso";
         AttackButton.GetComponent<Button>().onClick.AddListener(() => Input1());
         AttackButton.transform.SetParent(actionSpacer, false);
         atkBtns.Add(AttackButton);
@@ -347,7 +346,6 @@ public class BattleStateMaschine : MonoBehaviour
     {
         GameObject AttackButton = Instantiate(oliverButton) as GameObject;
         Text AttackButtonText = AttackButton.transform.FindChild("Text").gameObject.GetComponent<Text>();
-        AttackButtonText.text = "Nota Magica";
         AttackButton.GetComponent<Button>().onClick.AddListener(() => Input1());
         AttackButton.transform.SetParent(actionSpacer, false);
         atkBtns.Add(AttackButton);
@@ -382,7 +380,6 @@ public class BattleStateMaschine : MonoBehaviour
     {
         GameObject AttackButton = Instantiate(alexButton) as GameObject;
         Text AttackButtonText = AttackButton.transform.FindChild("Text").gameObject.GetComponent<Text>();
-        AttackButtonText.text = "Batida Solida";
         AttackButton.GetComponent<Button>().onClick.AddListener(() => Input1());
         AttackButton.transform.SetParent(actionSpacer, false);
         atkBtns.Add(AttackButton);

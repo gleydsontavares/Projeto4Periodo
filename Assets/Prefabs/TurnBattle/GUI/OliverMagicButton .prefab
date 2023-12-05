@@ -212,7 +212,8 @@ MonoBehaviour:
   simpleTooltipStyle: {fileID: 11400000, guid: dea555cc7b5bdbb4e8dae068d456f3de, type: 2}
   infoLeft: 'Harmonia da Vida
 
-    Oliver cria uma harmonia poderosa que cura a banda.'
+    Oliver cria uma harmonia poderosa que causa dano
+    elevado.'
   infoRight: 
 --- !u!1 &8483052445176109439
 GameObject:

@@ -50,6 +50,8 @@ public class HeroStateMaschine : MonoBehaviour
     public Camera heroCamera;
     
     public Slider healthSlider;
+    public ParticleSystem particlePrefab;
+    public GameObject damageParticlesPrefab;
 
     public GameObject guitarraMaya;
 
@@ -257,6 +259,9 @@ public class HeroStateMaschine : MonoBehaviour
         {
             float calc_damage = hero.curATK + BSM.PerformList[0].choosenAttack.attackDamage;
             EnemyToAttack.GetComponent<EnemyStateMaschine>().TakeDamake(calc_damage);
+            GameObject particles = Instantiate(damageParticlesPrefab, EnemyToAttack.transform.position, Quaternion.identity);
+            particles.GetComponent<ParticleSystem>().Play();
+            Destroy(particles, particles.GetComponent<ParticleSystem>().main.duration);
         }
     }
 

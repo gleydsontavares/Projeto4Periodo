@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Rift Poderoso
+  m_Text: Riff Poderoso
 --- !u!1 &3305596848482952746
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   simpleTooltipStyle: {fileID: 11400000, guid: dea555cc7b5bdbb4e8dae068d456f3de, type: 2}
-  infoLeft: 'Rift Poderoso
+  infoLeft: 'Riff Poderoso
 
     Maya toca um riff de guitarra, causando dano moderado.'
   infoRight: 

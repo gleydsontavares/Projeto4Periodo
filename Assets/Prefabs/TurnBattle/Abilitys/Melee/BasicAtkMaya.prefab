@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1315996390259230933}
   - component: {fileID: -4066218717839592468}
-  - component: {fileID: 8827302362006808423}
   - component: {fileID: 5483883800225579286}
   m_Layer: 0
   m_Name: BasicAtkMaya
@@ -52,21 +51,7 @@ MonoBehaviour:
   attackCost: 0
   attackAnimation: BasicAtk
   magicAttackAnimation: 
---- !u!114 &8827302362006808423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597381242023565536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99634edca86565b4a96a0b7b261787f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  simpleTooltipStyle: {fileID: 11400000, guid: dea555cc7b5bdbb4e8dae068d456f3de, type: 2}
-  infoLeft: "Testando\nSer\xE1 que funciona?"
-  infoRight: 
+  targetType: 0
 --- !u!65 &5483883800225579286
 BoxCollider:
   m_ObjectHideFlags: 0

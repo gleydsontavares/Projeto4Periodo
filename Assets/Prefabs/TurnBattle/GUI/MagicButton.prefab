@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31df31b5eebdb414b9a7cb061ae7ce0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magicAttackToPerform: {fileID: -3540014602275805285, guid: 847c05a0e6b4a28448359fc71e6b2e92, type: 3}
+  magicAttackToPerform: {fileID: 7125689437059608236, guid: b733c8bf2a9e474488b3644cd6320931, type: 3}
 --- !u!114 &2081989369619769010
 MonoBehaviour:
   m_ObjectHideFlags: 0

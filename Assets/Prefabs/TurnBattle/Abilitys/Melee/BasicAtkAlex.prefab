@@ -51,3 +51,4 @@ MonoBehaviour:
   attackCost: 0
   attackAnimation: BasicAtk
   magicAttackAnimation: 
+  targetType: 0
