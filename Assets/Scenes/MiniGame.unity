@@ -1214,7 +1214,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -373, y: 22}
+  m_AnchoredPosition: {x: -325, y: 84.16426}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &394893754
@@ -1237,7 +1237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: bec8fb8f36ef0bc40b779a6f94bb0d7c, type: 3}
+  m_Texture: {fileID: 2800000, guid: efa87ab629186f645aab7f48fa833e4a, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -6687,7 +6687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 138.50334, y: 12.835785}
+  m_AnchoredPosition: {x: 34, y: 79}
   m_SizeDelta: {x: 960, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116958711
@@ -6710,7 +6710,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pressione qualquer tecla para iniciar
+  m_text: 'Pressione qualquer tecla para iniciar
+
+
+    Utilize as setas para jogar'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc2382885de42a74ab30acf8d7fb1c2a, type: 2}
   m_sharedMaterial: {fileID: 7676382784839907438, guid: bc2382885de42a74ab30acf8d7fb1c2a, type: 2}
@@ -6744,7 +6747,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

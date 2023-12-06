@@ -12,7 +12,6 @@ public class TipsManager : MonoBehaviour
 
     private void Start()
     {
-        // Desativa o painel no início da cena
         Dicas2.SetActive(false);
         Dicas3.SetActive(false);
     }

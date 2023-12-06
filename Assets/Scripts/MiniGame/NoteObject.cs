@@ -27,11 +27,14 @@ public class NoteObject : MonoBehaviour
         {
             if(canBePressed)
             {
-                
-
-                //GameManager.instance.NoteHit();
-
-                if(Mathf.Abs(transform.position.y) > 0.25)
+                if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow))
+                {
+                    Debug.Log("Missed due to simultaneous key press");
+                    GameManager.instance.NoteMissed();
+                    Instantiate(missEffect, transform.position, missEffect.transform.rotation);
+                    gameObject.SetActive(false);
+                }
+                else if(Mathf.Abs(transform.position.y) > 0.25)
                 {
                     Debug.Log("Hit");
                     GameManager.instance.NormalHit();
