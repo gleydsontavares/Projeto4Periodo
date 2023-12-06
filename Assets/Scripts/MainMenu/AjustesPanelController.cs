@@ -7,12 +7,6 @@ public class AjustesPanelController : MonoBehaviour
     public GameObject audioPanel;
     public GameObject controlesPanel;
 
-    void Start()
-    {
-        // Encontrar o Save e GerenciadorSom na cena
-        audioPanel.SetActive(false);
-    }
-
     public void OpenAudioPanel()
     {
         audioPanel.SetActive(true);

@@ -6,7 +6,6 @@ public class MouseCursorController : MonoBehaviour
 
     private void Start()
     {
-        // Inicie com o cursor oculto
         HideCursor();
     }
 
@@ -19,7 +18,7 @@ public class MouseCursorController : MonoBehaviour
 
     public void HideCursor()
     {
-        Cursor.lockState = CursorLockMode.Locked; // Isso impede que o cursor saia da tela
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         cursorVisible = false;
     }

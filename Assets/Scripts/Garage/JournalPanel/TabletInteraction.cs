@@ -1,24 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TabletInteraction : MonoBehaviour
 {
     public GameObject tablet;
     public GameObject infoPanel;
     public GameObject player;
-    private PlayerController playerController;
-    public MouseCursorController cursorController;
-
-    public float interactionDistance = 5f; // Dist‚ncia de interaÁ„o do jogador
-
+    public Scrollbar scrollbar;
+    public RawImage rawImage;
+    
+    private bool jornalAberto = false;
+    public float interactionDistance = 5f; 
     private bool isInteracting = false;
-
-    private void Start()
-    {
-        playerController = player.GetComponent<PlayerController>();
-        cursorController = FindObjectOfType<MouseCursorController>();
-    }
+    
 
     private void Update()
     {
@@ -31,34 +27,43 @@ public class TabletInteraction : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.F) && !isInteracting)
                 {
-
+                    jornalAberto = true;
                     infoPanel.SetActive(true);
-
-                    cursorController.ShowCursor();
-
-                    if (playerController != null)
-                    {
-                        playerController.CanMove = false;
-                    }
+                    Time.timeScale = 0.0f;
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
 
                     isInteracting = true;
                 }
             }
         }
+        
+        if (isInteracting)
+        {
+            // Verifica se o scrollbar foi movido
+            if (scrollbar != null && rawImage != null)
+            {
+                float scrollbarValue = scrollbar.value; // Obt√©m o valor atual do scrollbar
+                float rawImageHeight = rawImage.rectTransform.rect.height;
+                float infoPanelHeight = infoPanel.GetComponent<RectTransform>().rect.height;
 
+                // Calcula a nova posi√ß√£o Y para o RawImage com base no valor do scrollbar
+                float newY = (rawImageHeight - infoPanelHeight) * scrollbarValue;
+
+                // Define a nova posi√ß√£o Y para o RawImage
+                rawImage.rectTransform.anchoredPosition = new Vector2(rawImage.rectTransform.anchoredPosition.x, newY);
+            }
+        }
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
 
             infoPanel.SetActive(false);
-
-            cursorController.HideCursor();
-
-            if (playerController != null)
-            {
-                playerController.CanMove = true;
-            }
-
+            Time.timeScale = 1.0f;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             isInteracting = false;
         }
     }
+    
 }

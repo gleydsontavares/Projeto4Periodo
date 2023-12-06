@@ -649,7 +649,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 119197339}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 757955500}
+        m_TargetAssemblyTypeName: CreditsPanelController, Assembly-CSharp
+        m_MethodName: ShowCredits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &119197339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1122,7 +1134,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1363432541}
         m_TargetAssemblyTypeName: AjustesPanelController, Assembly-CSharp
         m_MethodName: ClosePanel
         m_Mode: 1
@@ -4083,8 +4095,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creditsPanel: {fileID: 757955498}
-  BTN_creditos: {fileID: 119197338}
-  BTN_cross: {fileID: 2119374648}
 --- !u!1 &788241615
 GameObject:
   m_ObjectHideFlags: 0
@@ -4384,7 +4394,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1603655338}
         m_TargetAssemblyTypeName: AjustesPanelController, Assembly-CSharp
         m_MethodName: OpenAudioPanel
         m_Mode: 1
@@ -4616,7 +4626,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1603655338}
         m_TargetAssemblyTypeName: AjustesPanelController, Assembly-CSharp
         m_MethodName: OpenControlesPanel
         m_Mode: 1
@@ -5774,7 +5784,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1065621832}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: AjustesPanelController, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1065621832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6591,7 +6613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1363432540
 Transform:
   m_ObjectHideFlags: 0
@@ -6654,7 +6676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1365831672
 Transform:
   m_ObjectHideFlags: 0
@@ -7711,7 +7733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1603655337
 Transform:
   m_ObjectHideFlags: 0
@@ -10508,7 +10530,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2119374649}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 757955500}
+        m_TargetAssemblyTypeName: CreditsPanelController, Assembly-CSharp
+        m_MethodName: CloseCredits
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2119374649
 MonoBehaviour:
   m_ObjectHideFlags: 0
